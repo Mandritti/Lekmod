@@ -1009,6 +1009,13 @@
 //	- ..
 #define MND_CLEAN_UTILS
 
+//part of attempting to refactor the CvCity::doTurn() procedure to be easier to change, approaching change to the city production formula
+//	- doCityHPHealing_at_doTurn ::  Extracted method at CvCity::doTurn()
+//	- afterModifiersCityBuildingsDefense() ::  As the name implies, returns the Defense calculation originally inside CvCity::doTurn()
+//	- ..
+#define MND_ARCH_DOTURNCITYHP
+
+
 /////////////////////
 
 // From CP DLL

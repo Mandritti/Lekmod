@@ -2081,6 +2081,43 @@ void CvCity::doTurn()
 }
 
 
+#ifdef MND_ARCH_DOTURNCITYHP
+//	--------------------------------------------------------------------------------
+int CvCity::afterModifiersCityBuildingsDefense()
+{
+	int iBuildingDefense = m_pCityBuildings->GetBuildingDefense();
+#ifdef NQ_BUILDING_DEFENSE_FROM_CITIZENS
+	iBuildingDefense += (m_pCityBuildings->GetBuildingDefensePerCitizen() * getPopulation());
+#endif
+
+	return AfterModifiers(m_pCityBuildings->GetBuildingDefenseMod(), iBuildingDefense);  //see: define MND_CLEAN_UTILS
+}
+#endif
+
+#ifdef MND_ARCH_DOTURNCITYHP
+//	--------------------------------------------------------------------------------
+void CvCity::doCityHPHealing_at_doTurn() {
+	if (getDamage() > 0)
+	{
+		CvAssertMsg(m_iDamage <= GetMaxHitPoints(), "Somehow a city has more damage than hit points. Please show this to a gameplay programmer immediately.");
+
+		int iHitsHealed = GC.getCITY_HIT_POINTS_HEALED_PER_TURN();
+		if (isCapital() && !GET_PLAYER(getOwner()).isMinorCiv())
+		{
+			iHitsHealed++;
+		}
+		int iBuildingDefense = afterModifiersCityBuildingsDefense();  //hide Message Chaining and subformula
+		iHitsHealed += iBuildingDefense / 500;
+		changeDamage(-iHitsHealed);
+	}
+	if (getDamage() < 0)
+	{
+		setDamage(0);
+	}
+}
+#endif
+
+
 //	--------------------------------------------------------------------------------
 bool CvCity::isCitySelected()
 {

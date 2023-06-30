@@ -76,6 +76,10 @@ public:
 	int getCachedCultureT100ForThisTurn() const;
 #endif
 	void doTurn();
+#ifdef MND_ARCH_DOTURNCITYHP
+	int afterModifiersCityBuildingsDefense();
+	void doCityHPHealing_at_doTurn();
+#endif
 
 	bool isCitySelected();
 	bool canBeSelected() const;
