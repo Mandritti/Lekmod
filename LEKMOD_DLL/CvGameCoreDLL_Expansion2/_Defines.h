@@ -998,6 +998,18 @@
 
 /////////////////////
 
+// -------------------------------------------------------------------------------
+
+/// LEKMOD - Mandritti
+
+//--------------------------------------------------------------------------------
+
+//pure functions added to reduce repetition:
+//	- AfterModifiers :: (see: CvGameCoreUtils.h)  Calculates a given game quantity modified by a percentage modifier, e.g. 50 modifier gives 150% of the passed value
+//	- ..
+#define MND_CLEAN_UTILS
+
+/////////////////////
 
 // From CP DLL
 #define MOD_RESOURCES_PRODUCTION_COST_MODIFIERS
