@@ -628,6 +628,12 @@ bool isLimitedProject(ProjectTypes eProject)
 	return (isWorldProject(eProject) || isTeamProject(eProject));
 }
 
+#ifdef MND_PURE_UTILS
+inline int AfterModifiers(int PercentagePoints, int intGameValue) {
+	return ((100 + PercentagePoints) * intGameValue) / 100;
+}
+#endif
+
 bool OnSameBodyOfWater(CvCity* pCity1, CvCity* pCity2)
 {
 	for(int iI = 0; iI < NUM_DIRECTION_TYPES; iI++)

@@ -454,6 +454,10 @@ bool isWorldProject(ProjectTypes eProject);
 bool isTeamProject(ProjectTypes eProject);
 bool isLimitedProject(ProjectTypes eProject);
 
+#ifdef MND_PURE_UTILS
+int AfterModifiers(int PercentagePoints, int intGameValue);
+#endif
+
 bool OnSameBodyOfWater(CvCity* pCity1, CvCity* pCity2);
 
 TechTypes getDiscoveryTech(UnitTypes eUnit, PlayerTypes ePlayer);

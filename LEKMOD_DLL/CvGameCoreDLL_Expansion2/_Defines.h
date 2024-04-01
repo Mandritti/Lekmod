@@ -1027,6 +1027,16 @@
 
 
 
+//--------------------------------------------------------------------------------------------------
+
+// LEKMOD: Mandritti
+
+//--------------------------------------------------------------------------------------------------
+
+/* Helpful pure functions, found in CvGameCoreUtils */
+#define MND_PURE_UTILS
+//AfterModifiers(int modifierPercentage, int gameValue) -- applying a modifier to a game quantity, used with the 'times-100' value
+
 /////////////////////
 
 
